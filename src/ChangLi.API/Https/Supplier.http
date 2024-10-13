@@ -1,0 +1,47 @@
+﻿﻿@hostname = localhost
+@port = 7235
+@host = {{hostname}}:{{port}}
+@url = https://{{host}}
+@contentType = application/json
+
+###获取清单
+GET {{url}}/api/Purchase/Supplier/Query
+Content-Type:{{contentType}}
+
+###获取详情
+GET {{url}}/api/Purchase/Supplier/Get?id=08dbd7c1-eaa0-aa01-1831-bfb8c97c0000
+Content-Type:{{contentType}}
+
+
+###创建
+POST {{url}}/api/Purchase/Supplier/Create
+Content-Type:{{contentType}}
+
+{
+  "name": "水月派",
+  "address": "越国",
+  "contactPerson": "韩立",
+  "contactTel": "13412341234",
+  "email": "abc@163.com"
+}
+
+###更新
+POST {{url}}/api/Purchase/Supplier/Update
+Content-Type:{{contentType}}
+
+{
+  "id":"08dbd7c1-eaa0-aa01-1831-bfb8c97c0000",
+  "name": "水月派updated",
+  "address": "越国",
+  "contactPerson": "韩立",
+  "contactTel": "13412341234",
+  "email": "abc@163.com"
+}
+
+###删除
+POST {{url}}/api/Purchase/Supplier/Delete
+Content-Type:{{contentType}}
+
+{
+    "id": "08dbd7c2-6569-138d-1831-bfb8c97c0000"
+}
