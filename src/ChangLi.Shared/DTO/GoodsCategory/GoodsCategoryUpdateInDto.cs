@@ -3,7 +3,7 @@
 /// <summary>
 /// 物品类别
 /// </summary>
-public class GoodsCategoryUpdateInDto : DtoBase
+public class GoodsCategoryUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

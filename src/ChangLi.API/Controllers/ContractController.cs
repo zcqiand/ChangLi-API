@@ -76,7 +76,7 @@ public class ContractController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<ContractQueryOutDto>>> Query([FromQuery] ContractQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<ContractQueryOutDto>>> Query([FromQuery] ContractQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

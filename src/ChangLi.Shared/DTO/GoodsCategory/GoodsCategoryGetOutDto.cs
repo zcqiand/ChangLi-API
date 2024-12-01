@@ -3,7 +3,7 @@
 /// <summary>
 /// 物品类别
 /// </summary>
-public class GoodsCategoryGetOutDto : DtoBase
+public class GoodsCategoryGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

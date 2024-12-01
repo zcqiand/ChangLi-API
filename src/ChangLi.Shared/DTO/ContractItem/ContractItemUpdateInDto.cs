@@ -3,7 +3,7 @@
 /// <summary>
 /// 合同清单
 /// </summary>
-public class ContractItemUpdateInDto : DtoBase
+public class ContractItemUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

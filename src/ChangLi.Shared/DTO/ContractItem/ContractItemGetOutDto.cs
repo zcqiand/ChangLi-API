@@ -3,7 +3,7 @@
 /// <summary>
 /// 合同清单
 /// </summary>
-public class ContractItemGetOutDto : DtoBase
+public class ContractItemGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

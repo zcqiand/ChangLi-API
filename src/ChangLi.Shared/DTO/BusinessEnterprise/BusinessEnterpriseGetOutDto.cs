@@ -3,7 +3,7 @@
 /// <summary>
 /// 业务企业
 /// </summary>
-public class BusinessEnterpriseGetOutDto : DtoBase
+public class BusinessEnterpriseGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

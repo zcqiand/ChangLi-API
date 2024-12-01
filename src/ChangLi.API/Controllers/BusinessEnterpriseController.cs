@@ -1,5 +1,4 @@
-﻿using ChangLi.Shared.DTO.BusinessEnterprise;
-using ChangLi.HostApp.Services;
+﻿using ChangLi.HostApp.Services;
 using ChangLi.Shared.DTO.BusinessEnterprise;
 
 namespace ChangLi.HostApp.Controllers;
@@ -77,7 +76,7 @@ public class BusinessEnterpriseController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<BusinessEnterpriseQueryOutDto>>> Query([FromQuery] BusinessEnterpriseQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<BusinessEnterpriseQueryOutDto>>> Query([FromQuery] BusinessEnterpriseQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

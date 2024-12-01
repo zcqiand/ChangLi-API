@@ -164,7 +164,7 @@ public class ReturnGoodsService : ServiceBase
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public async Task<PagingOut<ReturnGoodsQueryOutDto>> Query(ReturnGoodsQueryInDto input)
+    public async Task<PagingOutBase<ReturnGoodsQueryOutDto>> Query(ReturnGoodsQueryInDto input)
     {
         var query = from a in _dbContext.ReturnGoods.AsNoTracking()
                     select a;
@@ -182,7 +182,7 @@ public class ReturnGoodsService : ServiceBase
 
         var itemDtos = Mapper.Map<IList<ReturnGoodsQueryOutDto>>(items);
 
-        return new PagingOut<ReturnGoodsQueryOutDto>(total, itemDtos);
+        return new PagingOutBase<ReturnGoodsQueryOutDto>(total, itemDtos);
     }
 
     /// <summary>

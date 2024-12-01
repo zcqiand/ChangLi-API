@@ -76,7 +76,7 @@ public class BusinessEnterpriseCategoryController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<BusinessEnterpriseCategoryQueryOutDto>>> Query([FromQuery] BusinessEnterpriseCategoryQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<BusinessEnterpriseCategoryQueryOutDto>>> Query([FromQuery] BusinessEnterpriseCategoryQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

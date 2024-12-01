@@ -3,7 +3,7 @@
 /// <summary>
 /// 库存清单
 /// </summary>
-public class StockItemUpdateInDto : DtoBase
+public class StockItemUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

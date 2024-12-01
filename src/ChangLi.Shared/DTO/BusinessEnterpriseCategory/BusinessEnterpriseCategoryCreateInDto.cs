@@ -3,7 +3,7 @@
 /// <summary>
 /// 供应商类别
 /// </summary>
-public class BusinessEnterpriseCategoryCreateInDto : DtoBase
+public class BusinessEnterpriseCategoryCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

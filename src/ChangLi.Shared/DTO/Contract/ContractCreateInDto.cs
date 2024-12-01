@@ -6,7 +6,7 @@ namespace ChangLi.Shared.DTO.Contract;
 /// <summary>
 /// 合同
 /// </summary>
-public class ContractCreateInDto : DtoBase
+public class ContractCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

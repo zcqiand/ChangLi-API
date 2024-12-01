@@ -91,7 +91,7 @@ public class BusinessEnterpriseCategoryService : ServiceBase
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public async Task<PagingOut<BusinessEnterpriseCategoryQueryOutDto>> Query(BusinessEnterpriseCategoryQueryInDto input)
+    public async Task<PagingOutBase<BusinessEnterpriseCategoryQueryOutDto>> Query(BusinessEnterpriseCategoryQueryInDto input)
     {
         var query = from a in _dbContext.BusinessEnterpriseCategories.AsNoTracking()
                     orderby a.Id
@@ -109,7 +109,7 @@ public class BusinessEnterpriseCategoryService : ServiceBase
 
         var itemDtos = Mapper.Map<IList<BusinessEnterpriseCategoryQueryOutDto>>(items);
 
-        return new PagingOut<BusinessEnterpriseCategoryQueryOutDto>(total, itemDtos);
+        return new PagingOutBase<BusinessEnterpriseCategoryQueryOutDto>(total, itemDtos);
     }
 
     /// <summary>
