@@ -1,6 +1,4 @@
 ﻿using ChangLi.Shared.DTO.BusinessEnterprise;
-using ChangLi.Shared.Models;
-using ChangLi.Shared.DTO.BusinessEnterprise;
 using ChangLi.Shared.DTO.BusinessEnterpriseCategory;
 using ChangLi.Shared.DTO.Contract;
 using ChangLi.Shared.DTO.ContractItem;
@@ -12,6 +10,7 @@ using ChangLi.Shared.DTO.ReturnGoods;
 using ChangLi.Shared.DTO.ReturnGoodsItem;
 using ChangLi.Shared.DTO.Stock;
 using ChangLi.Shared.DTO.StockItem;
+using ChangLi.Shared.Models;
 
 namespace ChangLi.API.Mappers;
 

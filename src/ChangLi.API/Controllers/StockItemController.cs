@@ -76,7 +76,7 @@ public class StockItemController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<StockItemQueryOutDto>>> Query([FromQuery] StockItemQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<StockItemQueryOutDto>>> Query([FromQuery] StockItemQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

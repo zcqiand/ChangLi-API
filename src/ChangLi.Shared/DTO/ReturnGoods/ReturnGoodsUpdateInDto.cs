@@ -5,7 +5,7 @@ namespace ChangLi.Shared.DTO.ReturnGoods;
 /// <summary>
 /// 退货
 /// </summary>
-public class ReturnGoodsUpdateInDto : DtoBase
+public class ReturnGoodsUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

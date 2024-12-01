@@ -5,7 +5,7 @@ namespace ChangLi.Shared.DTO.PurchaseRequest;
 /// <summary>
 /// 采购需求
 /// </summary>
-public class PurchaseRequestGetOutDto : DtoBase
+public class PurchaseRequestGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

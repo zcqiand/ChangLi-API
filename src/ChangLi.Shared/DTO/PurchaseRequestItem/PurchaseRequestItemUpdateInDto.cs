@@ -3,7 +3,7 @@
 /// <summary>
 /// 采购需求清单
 /// </summary>
-public class PurchaseRequestItemUpdateInDto : DtoBase
+public class PurchaseRequestItemUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

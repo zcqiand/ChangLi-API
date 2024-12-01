@@ -163,7 +163,7 @@ public class PurchaseRequestService : ServiceBase
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public async Task<PagingOut<PurchaseRequestQueryOutDto>> Query(PurchaseRequestQueryInDto input)
+    public async Task<PagingOutBase<PurchaseRequestQueryOutDto>> Query(PurchaseRequestQueryInDto input)
     {
         var query = from a in _dbContext.PurchaseRequests.AsNoTracking()
                     select a;
@@ -181,7 +181,7 @@ public class PurchaseRequestService : ServiceBase
 
         var itemDtos = Mapper.Map<IList<PurchaseRequestQueryOutDto>>(items);
 
-        return new PagingOut<PurchaseRequestQueryOutDto>(total, itemDtos);
+        return new PagingOutBase<PurchaseRequestQueryOutDto>(total, itemDtos);
     }
 
     /// <summary>

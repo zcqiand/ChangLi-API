@@ -76,7 +76,7 @@ public class GoodsCategoryController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<GoodsCategoryQueryOutDto>>> Query([FromQuery] GoodsCategoryQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<GoodsCategoryQueryOutDto>>> Query([FromQuery] GoodsCategoryQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

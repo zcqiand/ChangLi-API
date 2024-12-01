@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>22783646-a913-4ef1-869f-093c37aed662</UserSecretsId>
@@ -11,41 +11,35 @@
 
   <ItemGroup>
     <Compile Remove="IntegrationEventHandling\**" />
+    <Compile Remove="Validations\**" />
     <Content Remove="IntegrationEventHandling\**" />
+    <Content Remove="Validations\**" />
     <EmbeddedResource Remove="IntegrationEventHandling\**" />
+    <EmbeddedResource Remove="Validations\**" />
     <None Remove="IntegrationEventHandling\**" />
+    <None Remove="Validations\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="MediatR" Version="12.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16">
+    <PackageReference Include="CommonMormon.Infrastructure" Version="1.0.1" />
+    <PackageReference Include="CommonMormon.Infrastructure.API" Version="1.0.0" />
+    <PackageReference Include="CommonMormon.Infrastructure.Shared" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-    <PackageReference Include="NewId" Version="4.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Scrutor" Version="4.2.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Npgsql" Version="8.0.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
+    <PackageReference Include="Scrutor" Version="5.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-    <Folder Include="Validations\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\HeJing-API\src\Infrastructure\CommonMormon.Infrastructure.API\CommonMormon.Infrastructure.API.csproj" />
-    <ProjectReference Include="..\..\..\HeJing-API\src\Infrastructure\CommonMormon.Infrastructure.Shared\CommonMormon.Infrastructure.Shared.csproj" />
-    <ProjectReference Include="..\..\..\HeJing-API\src\Infrastructure\CommonMormon.Infrastructure\CommonMormon.Infrastructure.csproj" />
     <ProjectReference Include="..\ChangLi.Domain\ChangLi.Domain.csproj" />
     <ProjectReference Include="..\ChangLi.Infrastructure\ChangLi.Infrastructure.csproj" />
     <ProjectReference Include="..\ChangLi.Shared\ChangLi.Shared.csproj" />

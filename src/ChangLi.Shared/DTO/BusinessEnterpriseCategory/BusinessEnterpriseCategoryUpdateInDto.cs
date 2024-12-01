@@ -3,7 +3,7 @@
 /// <summary>
 /// 供应商类别
 /// </summary>
-public class BusinessEnterpriseCategoryUpdateInDto : DtoBase
+public class BusinessEnterpriseCategoryUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

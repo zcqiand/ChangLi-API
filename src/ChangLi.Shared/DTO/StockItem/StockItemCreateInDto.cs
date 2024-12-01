@@ -3,7 +3,7 @@
 /// <summary>
 /// 库存清单
 /// </summary>
-public class StockItemCreateInDto : DtoBase
+public class StockItemCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

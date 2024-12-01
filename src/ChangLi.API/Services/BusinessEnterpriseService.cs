@@ -1,6 +1,4 @@
-﻿using ChangLi.Infrastructure;
-using ChangLi.Shared.DTO.BusinessEnterprise;
-using ChangLi.Shared.DTO.BusinessEnterprise;
+﻿using ChangLi.Shared.DTO.BusinessEnterprise;
 
 namespace ChangLi.HostApp.Services;
 
@@ -92,7 +90,7 @@ public class BusinessEnterpriseService : ServiceBase
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public async Task<PagingOut<BusinessEnterpriseQueryOutDto>> Query(BusinessEnterpriseQueryInDto input)
+    public async Task<PagingOutBase<BusinessEnterpriseQueryOutDto>> Query(BusinessEnterpriseQueryInDto input)
     {
         var query = from a in _dbContext.BusinessEnterprises.AsNoTracking()
                     orderby a.Id
@@ -110,7 +108,7 @@ public class BusinessEnterpriseService : ServiceBase
 
         var itemDtos = Mapper.Map<IList<BusinessEnterpriseQueryOutDto>>(items);
 
-        return new PagingOut<BusinessEnterpriseQueryOutDto>(total, itemDtos);
+        return new PagingOutBase<BusinessEnterpriseQueryOutDto>(total, itemDtos);
     }
 
     /// <summary>

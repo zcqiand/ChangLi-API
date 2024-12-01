@@ -5,7 +5,7 @@ namespace ChangLi.Shared.DTO.Stock;
 /// <summary>
 /// 库存
 /// </summary>
-public class StockGetOutDto : DtoBase
+public class StockGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

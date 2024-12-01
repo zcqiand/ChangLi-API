@@ -3,7 +3,7 @@
 /// <summary>
 /// 库存清单
 /// </summary>
-public class StockItemGetOutDto : DtoBase
+public class StockItemGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

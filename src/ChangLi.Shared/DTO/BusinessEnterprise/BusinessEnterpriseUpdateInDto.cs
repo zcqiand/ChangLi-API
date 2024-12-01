@@ -3,7 +3,7 @@
 /// <summary>
 /// 业务企业
 /// </summary>
-public class BusinessEnterpriseUpdateInDto : DtoBase
+public class BusinessEnterpriseUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

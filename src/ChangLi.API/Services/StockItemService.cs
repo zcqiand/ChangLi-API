@@ -91,7 +91,7 @@ public class StockItemService : ServiceBase
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public async Task<PagingOut<StockItemQueryOutDto>> Query(StockItemQueryInDto input)
+    public async Task<PagingOutBase<StockItemQueryOutDto>> Query(StockItemQueryInDto input)
     {
         var query = from a in _dbContext.StockItems.AsNoTracking()
                     orderby a.Id
@@ -109,7 +109,7 @@ public class StockItemService : ServiceBase
 
         var itemDtos = Mapper.Map<IList<StockItemQueryOutDto>>(items);
 
-        return new PagingOut<StockItemQueryOutDto>(total, itemDtos);
+        return new PagingOutBase<StockItemQueryOutDto>(total, itemDtos);
     }
 
     /// <summary>

@@ -3,7 +3,7 @@
 /// <summary>
 /// 物品
 /// </summary>
-public class GoodsGetOutDto : DtoBase
+public class GoodsGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

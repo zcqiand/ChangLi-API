@@ -3,7 +3,7 @@
 /// <summary>
 /// 物品类别
 /// </summary>
-public class GoodsCategoryCreateInDto : DtoBase
+public class GoodsCategoryCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

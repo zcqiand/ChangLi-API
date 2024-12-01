@@ -76,7 +76,7 @@ public class ReturnGoodsItemController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<ReturnGoodsItemQueryOutDto>>> Query([FromQuery] ReturnGoodsItemQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<ReturnGoodsItemQueryOutDto>>> Query([FromQuery] ReturnGoodsItemQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

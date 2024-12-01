@@ -77,7 +77,7 @@ public class PurchaseRequestItemController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<PurchaseRequestItemQueryOutDto>>> Query([FromQuery] PurchaseRequestItemQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<PurchaseRequestItemQueryOutDto>>> Query([FromQuery] PurchaseRequestItemQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

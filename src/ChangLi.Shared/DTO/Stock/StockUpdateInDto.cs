@@ -5,7 +5,7 @@ namespace ChangLi.Shared.DTO.Stock;
 /// <summary>
 /// 库存
 /// </summary>
-public class StockUpdateInDto : DtoBase
+public class StockUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识

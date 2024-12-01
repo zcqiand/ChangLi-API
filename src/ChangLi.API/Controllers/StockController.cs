@@ -76,7 +76,7 @@ public class StockController : AppControllerBase
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ApiResult<PagingOut<StockQueryOutDto>>> Query([FromQuery] StockQueryInDto input)
+    public async Task<ApiResult<PagingOutBase<StockQueryOutDto>>> Query([FromQuery] StockQueryInDto input)
     {
         var result = await _service.Query(input);
         return Success(result);

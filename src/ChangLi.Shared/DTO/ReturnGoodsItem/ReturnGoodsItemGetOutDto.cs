@@ -3,7 +3,7 @@
 /// <summary>
 /// 退货清单
 /// </summary>
-public class ReturnGoodsItemGetOutDto : DtoBase
+public class ReturnGoodsItemGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

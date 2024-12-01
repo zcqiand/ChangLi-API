@@ -3,7 +3,7 @@
 /// <summary>
 /// 退货清单
 /// </summary>
-public class ReturnGoodsItemCreateInDto : DtoBase
+public class ReturnGoodsItemCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

@@ -3,7 +3,7 @@
 /// <summary>
 /// 供应商类别
 /// </summary>
-public class BusinessEnterpriseCategoryGetOutDto : DtoBase
+public class BusinessEnterpriseCategoryGetOutDto : GetOutBase
 {
     /// <summary>
     /// 标识

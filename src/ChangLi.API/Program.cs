@@ -3,6 +3,7 @@ using ChangLi.API.Mappers;
 using ChangLi.HostApp.Services;
 using Newtonsoft.Json;
 using System.Reflection;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,15 +25,17 @@ services.AddCors(options =>
     {
         builder.AllowAnyOrigin()
                .AllowAnyHeader()
-               .AllowAnyMethod();
+        .AllowAnyMethod();
     });
 });
 
+var connectionString = configuration.GetConnectionString("ChangLiDbConnection") ?? throw new InvalidOperationException("Connection string 'ChangLiDbConnection' not found.");
 
 services.AddDbContext<ChangLiDbContext>(options =>
 {
     options.EnableSensitiveDataLogging(true);
-    options.UseSqlServer(configuration.GetConnectionString("ChangLiDbConnection")!, b => b.MigrationsAssembly("ChangLi.API"));
+    //options.UseSqlServer(configuration.GetConnectionString("ChangLiDbConnection")!, b => b.MigrationsAssembly("ChangLi.API"));
+    options.UseNpgsql(connectionString, b => b.MigrationsAssembly("ChangLi.API"));
 });
 
 services.Scan(

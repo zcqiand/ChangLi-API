@@ -3,7 +3,7 @@
 /// <summary>
 /// 业务企业
 /// </summary>
-public class BusinessEnterpriseCreateInDto : DtoBase
+public class BusinessEnterpriseCreateInDto : CreateInBase
 {
     /// <summary>
     /// 标识

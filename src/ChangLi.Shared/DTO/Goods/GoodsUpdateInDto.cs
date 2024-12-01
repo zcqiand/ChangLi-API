@@ -3,7 +3,7 @@
 /// <summary>
 /// 物品
 /// </summary>
-public class GoodsUpdateInDto : DtoBase
+public class GoodsUpdateInDto : UpdateInBase
 {
     /// <summary>
     /// 标识
