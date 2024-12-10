@@ -9,13 +9,13 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["programming/ChangLi/ChangLi-API/src/ChangLi.API/ChangLi.API.csproj", "programming/ChangLi/ChangLi-API/src/ChangLi.API/"]
-COPY ["programming/ChangLi/ChangLi-API/src/ChangLi.Domain/ChangLi.Domain.csproj", "programming/ChangLi/ChangLi-API/src/ChangLi.Domain/"]
-COPY ["programming/ChangLi/ChangLi-API/src/ChangLi.Shared/ChangLi.Shared.csproj", "programming/ChangLi/ChangLi-API/src/ChangLi.Shared/"]
-COPY ["programming/ChangLi/ChangLi-API/src/ChangLi.Infrastructure/ChangLi.Infrastructure.csproj", "programming/ChangLi/ChangLi-API/src/ChangLi.Infrastructure/"]
-RUN dotnet restore "./programming/ChangLi/ChangLi-API/src/ChangLi.API/ChangLi.API.csproj"
+COPY ["src/ChangLi.API/ChangLi.API.csproj", "src/ChangLi.API/"]
+COPY ["src/ChangLi.Domain/ChangLi.Domain.csproj", "src/ChangLi.Domain/"]
+COPY ["src/ChangLi.Shared/ChangLi.Shared.csproj", "src/ChangLi.Shared/"]
+COPY ["src/ChangLi.Infrastructure/ChangLi.Infrastructure.csproj", "src/ChangLi.Infrastructure/"]
+RUN dotnet restore "./src/ChangLi.API/ChangLi.API.csproj"
 COPY . .
-WORKDIR "/src/programming/ChangLi/ChangLi-API/src/ChangLi.API"
+WORKDIR "/src/src/ChangLi.API"
 RUN dotnet build "./ChangLi.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
