@@ -6,7 +6,6 @@ namespace ChangLi.HostApp.Controllers;
 /// <summary>
 /// 合同
 /// </summary>
-[Area("Erp")]
 public class ContractController : AppControllerBase
 {
     private readonly ContractService _service;
