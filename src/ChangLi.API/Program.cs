@@ -75,6 +75,11 @@ services.AddAuthorization(options =>
 {
     options.AddPolicy("ApiScope", policy =>
     {
+        policy.RequireAssertion(context =>
+        {
+            var httpContext = context.Resource as HttpContext ?? throw new NullReferenceException("context.Resource is null");
+            return context.User.IsInRole("admin") || httpContext.Request.Method == "GET";
+        });
         policy.RequireAuthenticatedUser();
     });
 });
