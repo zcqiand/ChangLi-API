@@ -6,7 +6,6 @@ namespace ChangLi.HostApp.Controllers;
 /// <summary>
 /// 业务企业
 /// </summary>
-[Area("Erp")]
 public class BusinessEnterpriseController : AppControllerBase
 {
     private readonly BusinessEnterpriseService _service;

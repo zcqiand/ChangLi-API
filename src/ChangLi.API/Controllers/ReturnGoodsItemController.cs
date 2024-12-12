@@ -6,7 +6,6 @@ namespace ChangLi.HostApp.Controllers;
 /// <summary>
 /// 退货清单
 /// </summary>
-[Area("Erp")]
 public class ReturnGoodsItemController : AppControllerBase
 {
     private readonly ReturnGoodsItemService _service;

@@ -6,7 +6,6 @@ namespace ChangLi.HostApp.Controllers;
 /// <summary>
 /// 采购需求
 /// </summary>
-[Area("Erp")]
 public class PurchaseRequestController : AppControllerBase
 {
     private readonly PurchaseRequestService _service;

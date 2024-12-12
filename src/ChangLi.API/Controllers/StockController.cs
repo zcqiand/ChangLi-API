@@ -6,7 +6,6 @@ namespace ChangLi.HostApp.Controllers;
 /// <summary>
 /// 库存
 /// </summary>
-[Area("Erp")]
 public class StockController : AppControllerBase
 {
     private readonly StockService _service;

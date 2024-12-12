@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonMormon.Infrastructure" Version="1.0.1" />
-    <PackageReference Include="CommonMormon.Infrastructure.API" Version="1.0.0" />
-    <PackageReference Include="CommonMormon.Infrastructure.Shared" Version="1.0.0" />
+    <PackageReference Include="CommonMormon.Infrastructure" Version="1.0.3" />
+    <PackageReference Include="CommonMormon.Infrastructure.API" Version="1.0.3" />
+    <PackageReference Include="CommonMormon.Infrastructure.Shared" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
