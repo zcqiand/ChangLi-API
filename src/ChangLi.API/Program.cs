@@ -1,11 +1,9 @@
-using ChangLi.Infrastructure;
 using ChangLi.API.Mappers;
 using ChangLi.HostApp.Services;
-using Newtonsoft.Json;
-using System.Reflection;
-using Microsoft.Extensions.Configuration;
-using OpenIddict.Validation.AspNetCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using OpenIddict.Validation.AspNetCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +23,7 @@ services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins(configuration.GetSection("AllowedOrigins").Get<string[]>())
+        builder.WithOrigins(configuration.GetSection("AllowedOrigins").Get<string[]>() ?? throw new InvalidOperationException("Connection string 'AllowedOrigins' not found."))
                .AllowAnyHeader()
                .AllowAnyMethod()
                .AllowCredentials();
@@ -94,10 +92,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors();
 
 app.MapGet("/test", (IConfiguration configuration) =>
 {
