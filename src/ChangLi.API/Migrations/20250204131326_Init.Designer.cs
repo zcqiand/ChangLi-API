@@ -3,16 +3,16 @@ using System;
 using ChangLi.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace ChangLi.API.Migrations
 {
     [DbContext(typeof(ChangLiDbContext))]
-    [Migration("20241201133828_Init")]
+    [Migration("20250204131326_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -21,62 +21,62 @@ namespace ChangLi.API.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.11")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("ChangLi.Domain.Model.BusinessEnterprise", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("企业类别标识");
 
                     b.Property<string>("ContactAddress")
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("联系地址");
 
                     b.Property<string>("ContactPerson")
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("联系人");
 
                     b.Property<string>("ContactTel")
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("联系电话");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<int>("EnterpriseType")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("企业类型");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("企业全称");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("企业简称");
 
                     b.HasKey("Id");
@@ -92,32 +92,32 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.BusinessEnterpriseCategory", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("类别编号");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("类别名称");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.HasKey("Id");
@@ -131,51 +131,51 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.Contract", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("ContractDate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("合同日期");
 
                     b.Property<string>("ContractNumber")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("合同编号");
 
                     b.Property<string>("ContractTitle")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("合同标题");
 
                     b.Property<int>("ContractType")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("合同类型");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("PartyA")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("甲方");
 
                     b.Property<string>("PartyB")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("乙方");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.HasKey("Id");
@@ -189,40 +189,42 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.ContractItem", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<Guid>("ContractId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("合同标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<Guid>("GoodsId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("物品标识");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("数量");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("总价");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("单价");
 
                     b.HasKey("Id");
@@ -240,36 +242,36 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.Goods", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<string>("BrandModel")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("品牌型号");
 
                     b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("物品类别标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("物品名称");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.HasKey("Id");
@@ -285,32 +287,32 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.GoodsCategory", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("类别编号");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("类别名称");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.HasKey("Id");
@@ -324,35 +326,35 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.PurchaseRequest", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("PurchaseTitle")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("采购标题");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<DateTimeOffset>("RequestDate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("需求日期");
 
                     b.Property<string>("RequestNumber")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("需求编号");
 
                     b.HasKey("Id");
@@ -366,40 +368,42 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.PurchaseRequestItem", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<Guid>("GoodsId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("物品标识");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<Guid>("PurchaseRequestId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("采购需求标识");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("数量");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("总价");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("单价");
 
                     b.HasKey("Id");
@@ -417,39 +421,39 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.ReturnGoods", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<DateTimeOffset>("ReturnGoodsDate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("退货日期");
 
                     b.Property<string>("ReturnGoodsNumber")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("退货编号");
 
                     b.Property<string>("ReturnGoodsTitle")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("退货标题");
 
                     b.Property<int>("ReturnGoodsType")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("退货类型");
 
                     b.HasKey("Id");
@@ -463,40 +467,42 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.ReturnGoodsItem", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<Guid>("GoodsId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("物品标识");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("数量");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<Guid>("ReturnGoodsId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("退货标识");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("总价");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("单价");
 
                     b.HasKey("Id");
@@ -514,39 +520,39 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.Stock", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<DateTimeOffset>("StockDate")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("库存日期");
 
                     b.Property<string>("StockNumber")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasComment("库存编号");
 
                     b.Property<string>("StockTitle")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("库存标题");
 
                     b.Property<int>("StockType")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("库存类型");
 
                     b.HasKey("Id");
@@ -560,40 +566,42 @@ namespace ChangLi.API.Migrations
             modelBuilder.Entity("ChangLi.Domain.Model.StockItem", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("标识");
 
                     b.Property<DateTimeOffset>("CreateTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("创建时间");
 
                     b.Property<Guid>("GoodsId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("物品标识");
 
                     b.Property<DateTimeOffset>("LastModifyTime")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("datetimeoffset")
                         .HasComment("最后更新时间");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer")
+                        .HasColumnType("int")
                         .HasComment("数量");
 
                     b.Property<string>("Remark")
                         .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
+                        .HasColumnType("nvarchar(2000)")
                         .HasComment("备注");
 
                     b.Property<Guid>("StockId")
-                        .HasColumnType("uuid")
+                        .HasColumnType("uniqueidentifier")
                         .HasComment("库存标识");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("总价");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasComment("单价");
 
                     b.HasKey("Id");

@@ -35,7 +35,8 @@ var connectionString = configuration.GetConnectionString("ChangLiDbConnection") 
 services.AddDbContext<ChangLiDbContext>(options =>
 {
     options.EnableSensitiveDataLogging(true);
-    options.UseNpgsql(connectionString, b => b.MigrationsAssembly("ChangLi.API"));
+    options.UseSqlServer(connectionString, b => b.MigrationsAssembly("ChangLi.API"));
+    //options.UseNpgsql(connectionString, b => b.MigrationsAssembly("ChangLi.API"));
 });
 
 services.Scan(
@@ -74,11 +75,11 @@ services.AddAuthorization(options =>
 {
     options.AddPolicy("ApiScope", policy =>
     {
-        policy.RequireAssertion(context =>
-        {
-            var httpContext = context.Resource as HttpContext ?? throw new NullReferenceException("context.Resource is null");
-            return context.User.IsInRole("admin") || httpContext.Request.Method == "GET";
-        });
+        //policy.RequireAssertion(context =>
+        //{
+        //    var httpContext = context.Resource as HttpContext ?? throw new NullReferenceException("context.Resource is null");
+        //    return context.User.IsInRole("admin") || httpContext.Request.Method == "GET";
+        //});
         policy.RequireAuthenticatedUser();
     });
 });

@@ -32,11 +32,13 @@ public partial class ContractItem : Entity
     /// <summary>
     /// 单价
     /// </summary>
+    [Precision(18, 2)]
     [Comment("单价")]
     public decimal UnitPrice { get; set; }
     /// <summary>
     /// 总价
     /// </summary>
+    [Precision(18, 2)]
     [Comment("总价")]
     public decimal TotalPrice
     {
